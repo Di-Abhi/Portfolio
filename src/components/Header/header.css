@@ -1,0 +1,57 @@
+/* src/components/Header/Header.css */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 10%;
+  background: transparent;
+  transition: all ease .45s;
+}
+
+.logo {
+  color: #fff;
+  font-size: 41px;
+  font-weight: 600;
+}
+
+.logo span {
+  color: #ffae00; /* Highlight color */
+}
+
+.navbar {
+  display: flex;
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 25px;
+  cursor: pointer;
+  transition: all ease .50s;
+}
+
+.nav-link:hover {
+  color: #ffae00;
+}
+
+.nav-link.active {
+  color: #ffae00; /* Active link color */
+}
+
+.menu-btn {
+  background: linear-gradient(130.08deg, #383528 0%), #191919 100%;
+  padding: 10px 20px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#menu-icon {
+  font-size: 20px;
+  margin-left: 10px;
+}

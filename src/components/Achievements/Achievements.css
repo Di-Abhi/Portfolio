@@ -1,0 +1,107 @@
+.achievements {
+  padding: 100px 15%;
+  background: var(--bg-color);
+  color: var(--text-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.achievements-title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #ffae00;
+  text-align: center;
+  margin-bottom: 60px;
+  animation: headingAnim 1.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes headingAnim {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-container {
+  position: relative;
+  width: 400px;
+  height: 800px;
+  margin: 0 auto;
+}
+
+.timeline-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.timeline-point {
+  position: absolute;
+  z-index: 2;
+}
+
+.icon-dot {
+  background-color: var(--main-color);
+  color: white;
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.icon-dot:hover {
+  transform: scale(1.1);
+}
+
+.achievement-popup {
+  background: #1e1e1e;
+  border: 1px solid var(--main-color);
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  width: 320px;
+  white-space: normal;
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.timeline-point:hover .achievement-popup {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+  pointer-events: auto;
+}
+
+.achievement-popup.left {
+  right: 50px;
+  text-align: right;
+}
+
+.achievement-popup.right {
+  left: 50px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    width: 100%;
+    height: 1000px;
+  }
+
+  .achievement-popup {
+    max-width: 80%;
+    font-size: 0.9rem;
+    left: 60px !important;
+    right: auto !important;
+  }
+}
