@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import ScrollReveal from "scrollreveal";
 import "./Certificates.css";
-import c1 from "../../../public/certificates/react.png";
-import c2 from "../../../public/certificates/c2.png";
-import c3 from "../../../public/certificates/c3.png";
-import c4 from "../../../public/certificates/c4.png";
+import c1 from "../../assets/react.png";
+import c2 from "../../assets/c2.png";
+import c3 from "../../assets/c3.png";
+import c4 from "../../assets/c4.png";
 
 const certificates = [
   {
