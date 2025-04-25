@@ -11,7 +11,7 @@ const ProjectSection = () => {
       title: "CodeSync",
       description: "CodeSync is a real-time interview platform that combines live video calling with a collaborative code editor. Built with Next.js, TypeScript, and Tailwind CSS, it allows interviewers to assign coding tasks and evaluate candidates in an interactive and seamless environment. ",
       image: project1,
-      link: "#",
+      link: "https://github.com/Di-Abhi/codesync",
     },
     {
       title: "ShopEase",

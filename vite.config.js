@@ -5,5 +5,6 @@ import { ghPages } from 'vite-plugin-gh-pages'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(),ghPages()],
-  base: '/abhi-vibes/',
+  base: '/portfolio/',
+  
 })
