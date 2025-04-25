@@ -1,0 +1,74 @@
+/* src/components/ChatWidget/ChatWidget.css */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+  
+  .chat-toggle {
+    background-color: #ffae00;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  
+  .chat-box {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 280px;
+    background: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    overflow: hidden;
+    animation: fadeInUp 0.4s ease forwards;
+  }
+  
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--main-color);
+    color: white;
+  }
+  
+  .chat-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .chat-body input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .send-btn {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

@@ -64,7 +64,7 @@ const Header = () => {
             className={`nav-link ${activeLink === "achievements" ? "active" : ""}`}
             onClick={() => handleLinkClick("achievements")}
           >
-            Achievements
+            Coding Platform
           </Link>
         </li>
         <li>

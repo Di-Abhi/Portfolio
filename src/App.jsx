@@ -11,6 +11,7 @@ import Contact from "./components/Contacts/Contact";
 import Footer from "./components/Footer/Footer";
 import FloatingNav from "./components/FloatingNav/FloatingNav";
 import Certificates from "./components/Certificates/Certificates";
+import ChatWidget from "./components/ChatWidget/ChatWidget";
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
       <FloatingNav/>
       <Header />
       <Home />
+      <ChatWidget/>
       <About/>
       <Projects/>
       <Achievements/>
