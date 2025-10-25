@@ -1,55 +1,19 @@
 import { useEffect, useState } from 'react';
 import './Achievements.css';
-import { FaTrophy, FaCode, FaBolt, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaTrophy, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiLeetcode, SiGeeksforgeeks } from 'react-icons/si';
 import ScrollReveal from 'scrollreveal';
 
-const achievements = [
-
-  {
-    title: `${stats.totalSolved} Problems Solved`,
-    platform: 'LeetCode',
-    description: 'Strengthened DSA skills with consistent problem solving and algorithmic thinking.',
-    icon: <SiLeetcode />,
-    link: 'https://leetcode.com/u/Abhi-Rathour/',
-    stats: `${stats.totalSolved} Problems`,
-    color: '#FFA116'
-  },
-  {
-    title: '1550+ Contest Rating',
-    platform: 'LeetCode',
-    description: 'Achieved through regular contests and competitive programming practice.',
-    icon: <FaTrophy />,
-    link: 'https://leetcode.com/u/Abhi-Rathour/',
-    stats: '1550+ Rating',
-    color: '#00EA64'
-  },
-  {
-    title: 'DSA Enthusiast',
-    platform: 'GeeksforGeeks',
-    description: 'Regularly learning and improving Data Structures and Algorithms concepts.',
-    icon: <SiGeeksforgeeks />,
-    link: 'https://www.geeksforgeeks.org/user/abhi995e6l/',
-    stats: 'Active Learner',
-    color: '#2F8D46'
-  },
-];
-
 const Achievements = () => {
+  const [stats, setStats] = useState(null);
 
-  const [stats,setStats] = useState(null);
-
-  useEffect(()=>{
+  // Fetch LeetCode stats dynamically
+  useEffect(() => {
     fetch('https://leetcode-stats-api.herokuapp.com/Abhi-Rathour')
-    .then(res=>res.json())
-    .then(data=>{
-      setStats(data);
-    }).catch(err=>console.log(err));
-  })
-
-  if(!stats){
-    return <div>Loading...</div>;
-  }
+      .then(res => res.json())
+      .then(data => setStats(data))
+      .catch(err => console.error('Error fetching LeetCode stats:', err));
+  }, []);
 
   useEffect(() => {
     const sr = ScrollReveal({
@@ -61,6 +25,41 @@ const Achievements = () => {
     sr.reveal('.achievements-title', { origin: 'top', delay: 200 });
     sr.reveal('.achievement-card', { origin: 'bottom', interval: 200, delay: 300 });
   }, []);
+
+  if (!stats) {
+    return <div className="loading">Loading LeetCode Stats...</div>;
+  }
+
+  // Now create achievements dynamically after stats is available
+  const achievements = [
+    {
+      title: `${stats.totalSolved} Problems Solved`,
+      platform: 'LeetCode',
+      description: 'Strengthened DSA skills with consistent problem solving and algorithmic thinking.',
+      icon: <SiLeetcode />,
+      link: 'https://leetcode.com/u/Abhi-Rathour/',
+      stats: `${stats.totalSolved} Problems`,
+      color: '#FFA116'
+    },
+    {
+      title: '1550+ Contest Rating',
+      platform: 'LeetCode',
+      description: 'Achieved through regular contests and competitive programming practice.',
+      icon: <FaTrophy />,
+      link: 'https://leetcode.com/u/Abhi-Rathour/',
+      stats: '1550+ Rating',
+      color: '#00EA64'
+    },
+    {
+      title: 'DSA Enthusiast',
+      platform: 'GeeksforGeeks',
+      description: 'Regularly learning and improving Data Structures and Algorithms concepts.',
+      icon: <SiGeeksforgeeks />,
+      link: 'https://www.geeksforgeeks.org/user/abhi995e6l/',
+      stats: 'Active Learner',
+      color: '#2F8D46'
+    },
+  ];
 
   return (
     <section className="achievements" id="achievements">
