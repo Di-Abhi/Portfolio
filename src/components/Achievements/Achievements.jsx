@@ -1,17 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './Achievements.css';
 import { FaTrophy, FaCode, FaBolt, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiLeetcode, SiGeeksforgeeks } from 'react-icons/si';
 import ScrollReveal from 'scrollreveal';
 
 const achievements = [
+
   {
-    title: '250+ Problems Solved',
+    title: `${stats.totalSolved} Problems Solved`,
     platform: 'LeetCode',
     description: 'Strengthened DSA skills with consistent problem solving and algorithmic thinking.',
     icon: <SiLeetcode />,
     link: 'https://leetcode.com/u/Abhi-Rathour/',
-    stats: '250+ Problems',
+    stats: `${stats.totalSolved} Problems`,
     color: '#FFA116'
   },
   {
@@ -35,6 +36,21 @@ const achievements = [
 ];
 
 const Achievements = () => {
+
+  const [stats,setStats] = useState(null);
+
+  useEffect(()=>{
+    fetch('https://leetcode-stats-api.herokuapp.com/Abhi-Rathour')
+    .then(res=>res.json())
+    .then(data=>{
+      setStats(data);
+    }).catch(err=>console.log(err));
+  })
+
+  if(!stats){
+    return <div>Loading...</div>;
+  }
+
   useEffect(() => {
     const sr = ScrollReveal({
       distance: '40px',
